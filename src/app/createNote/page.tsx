@@ -1,4 +1,5 @@
 "use client"
+import "../../styles/globals.scss"
 import { Button, DatePicker, Form, Input, Switch } from "antd"
 import FormItem from "antd/es/form/FormItem"
 import { createContext, useState } from 'react';
@@ -15,7 +16,7 @@ export default function CreateNote() {
   // const validateForm = () => {
 
   // }
-  return (<>
+  return (<div className="">
     <h1>this is the endPoint that the user will get directed to to create a new note</h1>
     <Form
       name="newNote"
@@ -45,9 +46,12 @@ export default function CreateNote() {
 
       <Form.Item
         label="autoDelete"
-        valuePropName="checked"
       >
-        <Switch />
+        <Switch
+          onChange={(checked: boolean) => {
+            setComponentDisabled(checked)
+          }}
+        />
       </Form.Item>
 
 
@@ -55,7 +59,7 @@ export default function CreateNote() {
       <Form.Item
 
       >
-        <DatePicker showTime format={"YYYY-MM-DD HH:mm:ss"} />
+        <DatePicker showTime format={"YYYY-MM-DD HH:mm:ss"} disabled={!componentDisabled} />
       </Form.Item>
 
 
@@ -64,5 +68,5 @@ export default function CreateNote() {
         <Button type="primary">Sumbit</Button>
       </FormItem>
     </Form>
-  </>)
+  </div>)
 }

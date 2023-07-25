@@ -42,7 +42,7 @@ function getMyNotes(email: string): Promise<loggedIn[]> {
 };
 export default async function Users() {
   const email = "a";
-  const myNotes = await getMyNotes(email);
+  // const myNotes = await getMyNotes(email);
   return (<>
     <header>
       <h1>This is the user's Home Page</h1>
