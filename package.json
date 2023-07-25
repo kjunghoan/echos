@@ -1,0 +1,36 @@
+{
+  "name": "regional_notes",
+  "version": "0.1.0",
+  "private": "false",
+  "description": "This app let's the user Leave notes around at specific locations for them to find again later",
+  "main": "next.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^2.7.0",
+    "@prisma/client": "^5.0.0",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "antd": "^5.7.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "next": "13.4.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^20.4.4",
+    "esbuild-register": "^3.4.2",
+    "prisma": "^5.0.0",
+    "typescript": "^5.1.6"
+  }
+}
