@@ -11,12 +11,15 @@ datasource db {
 }
 
 model Users {
-  id        String     @id @unique @default(uuid()) @db.Uuid
+  id String @id @unique @default(uuid()) @db.Uuid
+
   firstname String
   lastName  String
-  email     String     @unique
-  userName  String     @unique
-  password  String
+  email     String @unique
+
+  userName String @unique
+  password String
+
   createdAt DateTime   @default(now())
   messages  Messages[]
 }
