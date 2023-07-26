@@ -5,9 +5,8 @@ CREATE TABLE "Messages" (
     "title" TEXT NOT NULL,
     "body" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-    "longitude" INTEGER NOT NULL,
-    "latitude" INTEGER NOT NULL,
+    "longitude" DOUBLE PRECISION NOT NULL,
+    "latitude" DOUBLE PRECISION NOT NULL,
 
     CONSTRAINT "Messages_pkey" PRIMARY KEY ("id")
 );

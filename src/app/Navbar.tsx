@@ -1,3 +1,4 @@
+"server component"
 import { Menu } from "antd";
 import Link from "next/link";
 

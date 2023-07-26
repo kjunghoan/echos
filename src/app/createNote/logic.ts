@@ -1,21 +1,29 @@
 "use server";
-
 import { prisma } from "../../db";
 
 export const createNewNote = async (
   title: string,
   body: string,
-  long: number,
-  lat: number,
-  user: string
+  user: string,
+  longitude: number,
+  latitude: number
 ) => {
-  return prisma.messages.create({
+  const response = await prisma.messages.create({
     data: {
+      user,
       title,
       body,
-      longitude: long,
-      latitude: lat,
-      user,
+      longitude,
+      latitude,
+    },
+    select: {
+      title: true,
     },
   });
+  if (!response) {
+    alert(`Message could not be posted`);
+  } else {
+    console.dir(response);
+  }
+  return response.title;
 };
