@@ -2,8 +2,8 @@
 import "../globals.scss"
 import { Button, Form, Input, } from "antd"
 import FormItem from "antd/es/form/FormItem"
-import { createNewNote } from "./logic";
-import NavBar from "../Navbar";
+import { createNewNote } from "../../components/logic/createPost";
+import NavBar from "../../components/Navbar";
 
 type Formdata = {
   userName: string;

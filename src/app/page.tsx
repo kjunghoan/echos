@@ -1,6 +1,6 @@
 "use client"
-import MessagesList from "./MessagesList";
-import NavBar from "./Navbar";
+import MessagesList from "../components/MessagesList";
+import NavBar from "../components/Navbar";
 
 
 export default function Home() {
