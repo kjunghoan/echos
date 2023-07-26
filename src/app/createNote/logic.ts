@@ -1,16 +1,21 @@
 "use server";
 
-export const createNewNote = async (
-  data: FormData,
-  long: number,
-  lat: number
-) => {
-  console.log(data);
-  const title = data.title;
-  const body = data.body;
-  const autoDelete = data.autoDelete;
-  const longitude = long;
-  const latitude = lat;
+import { prisma } from "../../db";
 
-  console.log("hello");
+export const createNewNote = async (
+  title: string,
+  body: string,
+  long: number,
+  lat: number,
+  user: string
+) => {
+  return prisma.messages.create({
+    data: {
+      title,
+      body,
+      longitude: long,
+      latitude: lat,
+      user,
+    },
+  });
 };

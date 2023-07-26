@@ -14,12 +14,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^2.7.0",
     "@prisma/client": "^5.0.0",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "antd": "^5.7.3",
-    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "next": "13.4.12",
     "react": "18.2.0",
@@ -27,7 +25,6 @@
     "sass": "^1.64.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.13",
     "@types/dotenv": "^8.2.0",
     "@types/node": "^20.4.4",
     "esbuild-register": "^3.4.2",
