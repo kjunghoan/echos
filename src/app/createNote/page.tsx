@@ -3,36 +3,53 @@ import "../globals.scss"
 import { Button, Form, Input, } from "antd"
 import FormItem from "antd/es/form/FormItem"
 import { createNewNote } from "./logic";
-export default function CreateNote() {
-  //geolocation stuff
+import NavBar from "../Navbar";
 
-  //inputs
-  let long: number, lat: number;
-  let geoLSuccess = ({ coords }: any) => {
-    long = coords.longitude;
-    lat = coords.latitude;
-  }
+type Formdata = {
+  userName: string;
+  title: string;
+  body: string;
+}
+
+
+export const getCurrentPosition = ({ userName, title, body }: Formdata) => {
+  let longitude: number;
+  let latitude: number;
+  const geoLSuccess = ({ coords }: any) => {
+    longitude = coords.longitude;
+    latitude = coords.latitude;
+    console.dir(coords)
+    console.log(longitude, latitude);
+    createNewNote(title, body, userName, longitude, latitude);
+
+  };
   const geoLError = (error: any) => {
     if (error.code === 1) {
       alert("Please allow the site to read your location first");
     } else {
       alert("Your location is currently unavailable");
     }
-  }
+  };
   const geoLOptions = {
-    enableHighAccuracy: true
-  }
-  // output
-  window.navigator.geolocation.getCurrentPosition(geoLSuccess, geoLError, geoLOptions);
+    enableHighAccuracy: true,
+  };
+  navigator.geolocation.getCurrentPosition(geoLSuccess, geoLError, geoLOptions)
+
+};
+
+export default function CreateNote() {
+
+  //inputs
 
   const validateForm = () => {
 
   }
   const onFinish = (e: any) => {
-    const { userName, title, body } = e;
-    createNewNote(title, body, long, lat, userName);
+    getCurrentPosition(e)
+    // console.log(title, body, userName, longitude, latitude)
   }
   return (<div>
+    <NavBar />
     <h1>this is the endPoint that the user will get directed to to create a new note</h1>
     <Form
       name="newNote"
@@ -42,7 +59,7 @@ export default function CreateNote() {
       <Form.Item
         label="User Name"
         name="userName"
-        initialValue={""}
+        initialValue={"anonymous"}
       >
         <input
           required
