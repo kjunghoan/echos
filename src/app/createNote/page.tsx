@@ -2,7 +2,7 @@
 import "../../styles/globals.scss"
 import { Button, Form, Input, } from "antd"
 import FormItem from "antd/es/form/FormItem"
-import { createNewNote } from "../../components/logic/createPost";
+import { createNewNote } from "../../components/logic/modules";
 import NavBar from "../../components/Navbar";
 
 type Formdata = {
@@ -12,16 +12,12 @@ type Formdata = {
 }
 
 
-export const getCurrentPosition = ({ userName, title, body }: Formdata) => {
-  let longitude: number;
-  let latitude: number;
-  const geoLSuccess = ({ coords }: any) => {
-    longitude = coords.longitude;
-    latitude = coords.latitude;
-    console.dir(coords)
-    console.log(longitude, latitude);
-    createNewNote(title, body, userName, longitude, latitude);
+const getCurrentPosition = ({ userName, title, body }: Formdata) => {
 
+  const geoLSuccess = ({ coords }: any) => {
+    const longitude: number = coords.longitude;
+    const latitude: number = coords.latitude;
+    createNewNote(title, body, userName, longitude, latitude);
   };
   const geoLError = (error: any) => {
     if (error.code === 1) {
@@ -46,7 +42,6 @@ export default function CreateNote() {
   }
   const onFinish = (e: any) => {
     getCurrentPosition(e)
-    // console.log(title, body, userName, longitude, latitude)
   }
   return (<div>
     <NavBar />
