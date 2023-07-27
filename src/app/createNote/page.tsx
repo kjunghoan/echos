@@ -1,5 +1,5 @@
 "use client"
-import "../globals.scss"
+import "../../styles/globals.scss"
 import { Button, Form, Input, } from "antd"
 import FormItem from "antd/es/form/FormItem"
 import { createNewNote } from "../../components/logic/createPost";
