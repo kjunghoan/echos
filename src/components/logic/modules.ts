@@ -7,14 +7,15 @@ export async function createNewNote(
   user: string,
   longitude: number,
   latitude: number
-) {
+): Promise<string> {
+  const visible: boolean = true;
   const response = await prisma.messages.create({
     data: {
-      user,
       title,
       body,
       longitude,
       latitude,
+      visible,
     },
     select: {
       title: true,
@@ -27,27 +28,26 @@ export async function createNewNote(
   }
   return response.title;
 }
-
+type getPostsReturn = {
+  id: string;
+  title: string;
+  body: string;
+  updatedAt: Date;
+}[];
 export async function getPosts(
   longitude: number,
   latitude: number
-): Promise<unknown[]> {
+): Promise<getPostsReturn> {
   //this is === 1km
-  // const range: number = 0.01506;
-  const range: number = 360;
+  const range: number = 0.01506;
+  // const range: number = 360;
 
   //setting the ranges for longitude and latitude
   const longMax: number = longitude + range;
   const longMin: number = longitude - range;
   const latMax: number = latitude + range;
   const latMin: number = latitude - range;
-  const variables = {
-    range: range,
-    longMax: longMax,
-    longMin: longMin,
-    latMax: latMax,
-    latMin: latMin,
-  };
+
   // return await prisma.messages.findMany({
   const results = await prisma.messages.findMany({
     where: {
@@ -59,16 +59,16 @@ export async function getPosts(
         gte: latMin,
         lte: latMax,
       },
+      visible: true,
     },
     select: {
-      user: true,
+      id: true,
       title: true,
       body: true,
-      longitude: true,
-      latitude: true,
+      updatedAt: true,
     },
   });
-  console.dir(variables);
-  console.log(results);
+  // console.dir(variables);
+  // console.log(results);
   return results;
 }
