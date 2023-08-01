@@ -45,7 +45,6 @@ export default function CreateNote() {
   }
   return (<div>
     <NavBar />
-    <h1>this is the endPoint that the user will get directed to to create a new note</h1>
     <Form
       name="newNote"
       layout="vertical"
