@@ -14,7 +14,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^5.2.0",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "antd": "^5.7.3",
@@ -28,7 +28,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/node": "^20.4.4",
     "esbuild-register": "^3.4.2",
-    "prisma": "^5.0.0",
+    "prisma": "^5.2.0",
     "typescript": "^5.1.6"
   }
 }

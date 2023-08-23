@@ -1,5 +1,6 @@
 "client component"
 
+import { Typography } from "antd";
 import MessagsListEntry from "./MessagesListEntry";
 import { getPosts } from "./logic/modules";
 import { useEffect, useState } from "react";
@@ -15,6 +16,7 @@ type Posts = {
   title: string;
   body: string;
   updatedAt: Date;
+  // createdAt: Date;
 }
 
 
@@ -51,7 +53,6 @@ export default function MessagesList(props: MessagesListProps) {
 
 
   const mapPosts = () => {
-    // do { getLocalMemos(); console.log("A") } while (postsArray === undefined)
     console.log(12)
     while (posts === undefined) {
       return <h1>this is the placeholder</h1>
@@ -67,6 +68,8 @@ export default function MessagesList(props: MessagesListProps) {
           />
         )
       })
+    } else {
+      return <Typography.Title> No Notes in your</Typography.Title>
     }
   }
 

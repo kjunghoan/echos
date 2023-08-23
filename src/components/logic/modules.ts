@@ -4,7 +4,7 @@ import { prisma } from "@/db";
 export async function createNewNote(
   title: string,
   body: string,
-  user: string,
+  // user: string,
   longitude: number,
   latitude: number
 ): Promise<string> {
@@ -15,7 +15,7 @@ export async function createNewNote(
       body,
       longitude,
       latitude,
-      visible,
+      // visible,
     },
     select: {
       title: true,
@@ -59,13 +59,13 @@ export async function getPosts(
         gte: latMin,
         lte: latMax,
       },
-      visible: true,
+      // visible: true,
     },
     select: {
       id: true,
       title: true,
       body: true,
-      updatedAt: true,
+      // updatedAt: true,
     },
   });
   // console.dir(variables);

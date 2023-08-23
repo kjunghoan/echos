@@ -17,7 +17,7 @@ export default function MessagsListEntry(props: MessagsListEntryProps) {
       bordered={true}
     >
       <p>{props.body}</p>
-      <small>{props.updatedAt.toString()}</small>
+      <small>{String(props.updatedAt)}</small>
     </Card>
   )
 }
