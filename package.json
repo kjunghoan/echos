@@ -1,6 +1,6 @@
 {
-  "name": "ECHOS",
-  "version": "0.1.0",
+  "name": "echos",
+  "version": "0.0.1",
   "private": "false",
   "description": "This app let's the user Leave notes around at specific locations for them to find again later",
   "main": "next.config.js",
@@ -11,7 +11,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prismaDeploy": "npx prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^5.2.0",

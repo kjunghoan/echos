@@ -17,7 +17,12 @@ const getCurrentPosition = ({ userName, title, body }: Formdata) => {
   const geoLSuccess = ({ coords }: any) => {
     const longitude: number = coords.longitude;
     const latitude: number = coords.latitude;
-    createNewNote(title, body, userName, longitude, latitude);
+    createNewNote(
+      title,
+      body,
+      // userName,
+      longitude,
+      latitude);
   };
   const geoLError = (error: any) => {
     if (error.code === 1) {

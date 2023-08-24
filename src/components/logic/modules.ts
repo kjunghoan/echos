@@ -22,9 +22,9 @@ export async function createNewNote(
     },
   });
   if (!response) {
-    alert(`Message could not be posted`);
+    console.log(`Message could not be posted`);
   } else {
-    console.dir(response);
+    console.log(response);
   }
   return response.title;
 }
@@ -38,9 +38,9 @@ export async function getPosts(
   longitude: number,
   latitude: number
 ): Promise<getPostsReturn> {
-  //this is === 1km
-  const range: number = 0.01506;
-  // const range: number = 360;
+  const oneKm: number = 0.01506;
+  const global: number = 360;
+  const range = oneKm;
 
   //setting the ranges for longitude and latitude
   const longMax: number = longitude + range;
@@ -48,9 +48,9 @@ export async function getPosts(
   const latMax: number = latitude + range;
   const latMin: number = latitude - range;
 
-  // return await prisma.messages.findMany({
-  const results = await prisma.messages.findMany({
+  return await prisma.messages.findMany({
     where: {
+      // visible: true,
       longitude: {
         gte: longMin,
         lte: longMax,
@@ -59,16 +59,12 @@ export async function getPosts(
         gte: latMin,
         lte: latMax,
       },
-      // visible: true,
     },
     select: {
       id: true,
       title: true,
       body: true,
-      // updatedAt: true,
+      updatedAt: true,
     },
   });
-  // console.dir(variables);
-  // console.log(results);
-  return results;
 }
