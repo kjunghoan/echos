@@ -6,19 +6,18 @@ import { getPosts } from "./logic/modules";
 import { useEffect, useState } from "react";
 
 
-//can ignoree for now just setting up for growth
+//can ignore for now just setting up for growth
 type MessagesListProps = {
 
 }
 
-type Posts = {
+interface Posts {
   id: string;
   title: string;
   body: string;
   updatedAt: Date;
   // createdAt: Date;
 }
-
 
 const getLocalMemos = (cb: Function) => {
 
@@ -32,7 +31,7 @@ const getLocalMemos = (cb: Function) => {
   };
   const geoLError = (error: any) => {
     if (error.code === 1) {
-      alert("Please allow the site to read your location first");
+      alert("Please allow the site to read your location");
     } else {
       alert("Your location is currently unavailable");
     }
@@ -53,9 +52,8 @@ export default function MessagesList(props: MessagesListProps) {
 
 
   const mapPosts = () => {
-    console.log(12)
     while (posts === undefined) {
-      return <h1>this is the placeholder</h1>
+      return <h1>This is a place holder that will eventually be replaced with a loading bar / icon</h1>
     }
     if (posts.length !== 0) {
       return posts.map((post: Posts) => {
@@ -69,7 +67,7 @@ export default function MessagesList(props: MessagesListProps) {
         )
       })
     } else {
-      return <Typography.Title> No Notes in your</Typography.Title>
+      return <Typography.Title> No Notes in your area (This will also be replaced with an image that I have yet to make)</Typography.Title>
     }
   }
 
