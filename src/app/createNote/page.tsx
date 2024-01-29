@@ -4,6 +4,7 @@ import { Button, Form, Input, } from "antd"
 import FormItem from "antd/es/form/FormItem"
 import { createNewNote } from "../../components/logic/modules";
 import NavBar from "../../components/Navbar";
+import {redirect } from 'next/navigation'
 
 type Formdata = {
   userName: string;
@@ -42,11 +43,10 @@ export default function CreateNote() {
 
   //inputs
 
-  const validateForm = () => {
-
-  }
+  const validateForm = () => {}
   const onFinish = (e: any) => {
     getCurrentPosition(e)
+    redirect("../page.tsx")
   }
   return (<div>
     <NavBar />

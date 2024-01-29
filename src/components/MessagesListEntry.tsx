@@ -1,18 +1,15 @@
 import { Card } from "antd";
 
 
-type MessagsListEntryProps = {
+type MessagesListEntryProps = {
   key: string;
   title: string;
   body: string;
   updatedAt: Date;
 }
-export default function MessagsListEntry(props: MessagsListEntryProps) {
+export default function MessagesListEntry(props: MessagesListEntryProps) {
   return (
     <Card
-      style={{
-
-      }}
       title={props.title}
       bordered={true}
     >

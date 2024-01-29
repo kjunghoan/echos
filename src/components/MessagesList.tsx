@@ -1,7 +1,7 @@
 "client component"
 
 import { Typography } from "antd";
-import MessagsListEntry from "./MessagesListEntry";
+import MessagesListEntry from "./MessagesListEntry";
 import { getPosts } from "./logic/modules";
 import { useEffect, useState } from "react";
 
@@ -58,7 +58,7 @@ export default function MessagesList(props: MessagesListProps) {
     if (posts.length !== 0) {
       return posts.map((post: Posts) => {
         return (
-          <MessagsListEntry
+          <MessagesListEntry
             key={post.id}
             title={post.title}
             body={post.body}
