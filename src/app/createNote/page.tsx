@@ -108,7 +108,7 @@ export default function CreateNote() {
         <Button
           type="primary"
           htmlType="submit"
-        >Sumbit</Button>
+        >Submit</Button>
       </FormItem>
     </Form>
   </div>)

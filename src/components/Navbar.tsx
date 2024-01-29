@@ -3,10 +3,10 @@ import { Menu, Typography } from "antd";
 import Link from "next/link";
 const { Title } = Typography;
 export default function NavBar() {
-  const appName: string = "ECHOS(working title)"
+  const appName: string = "ECHOS"
   const menuListItems = [
     {
-      label: (<Typography.Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><img width={70} src={""} /></Typography.Link>),
+      label: (<Typography.Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"><img width={70} src={"../../public/favicon.png"} /></Typography.Link>),
       key: 'theSong'
     },
     {
